@@ -4,9 +4,14 @@ sc = spellchecker.SpellChecker()
 
 while(True):
     sc.printMenu()
+    txtIn = input("Scelta: ")
 
-    txtIn = input()
-    # Add input control here!
+    if not txtIn.isdigit():
+        print("Inserire un numero valido.")
+        continue
+
+    scelta = int(txtIn)
+    lingue = {1: "italian", 2: "english", 3: "spanish"}
 
     if int(txtIn) == 1:
         print("Inserisci la tua frase in Italiano\n")

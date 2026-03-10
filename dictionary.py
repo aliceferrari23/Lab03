@@ -1,14 +1,26 @@
 class Dictionary:
     def __init__(self):
-        pass
+        self.diz=[]
 
     def loadDictionary(self,path):
-        pass
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    self.diz.append(line.strip().lower())
+                self.diz.sort()
+        except FileNotFoundError:
+            print(f"Errore: File {path} non trovato.")
 
     def printAll(self):
-        pass
+        if not self.diz:
+            print("Il dizionario è vuoto.")
+            return
+
+        print(f"Contenuto del dizionario ({len(self.diz)} parole):")
+        for word in sorted(self.diz):
+            print(word)
 
 
     @property
     def dict(self):
-        return self._dict
+        return self.diz
